@@ -19,10 +19,144 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Driver\mainClass.h" />
+    <ClInclude Include="Driver\driver.h" />
+    <ClInclude Include="offsets.h" />
+    <ClInclude Include="OS-ImGui\imgui\imconfig.h" />
+    <ClInclude Include="OS-ImGui\imgui\imgui.h" />
+    <ClInclude Include="OS-ImGui\imgui\imgui_freetype.h" />
+    <ClInclude Include="OS-ImGui\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="OS-ImGui\imgui\imgui_impl_dx9.h" />
+    <ClInclude Include="OS-ImGui\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="OS-ImGui\imgui\imgui_internal.h" />
+    <ClInclude Include="OS-ImGui\imgui\imstb_rectpack.h" />
+    <ClInclude Include="OS-ImGui\imgui\imstb_textedit.h" />
+    <ClInclude Include="OS-ImGui\imgui\imstb_truetype.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\config\ftconfig.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\config\ftheader.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\config\ftmodule.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\config\ftoption.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\config\ftstdlib.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\freetype.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftadvanc.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftautoh.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftbbox.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftbdf.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftbitmap.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftbzip2.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftcache.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftcffdrv.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftchapters.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftcid.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\fterrdef.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\fterrors.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftfntfmt.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftgasp.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftglyph.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftgxval.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftgzip.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftimage.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftincrem.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftlcdfil.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftlist.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftlzw.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftmac.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftmm.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftmodapi.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftmoderr.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftotval.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftoutln.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftpfr.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftrender.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftsizes.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftsnames.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftstroke.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftsynth.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftsystem.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\fttrigon.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftttdrv.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\fttypes.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ftwinfnt.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\autohint.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftcalc.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftdebug.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftdriver.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftgloadr.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\fthash.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftmemory.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftobjs.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftpic.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftrfork.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftserv.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftstream.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\fttrace.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftvalid.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\internal.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\psaux.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\pshints.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svbdf.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svcid.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svfntfmt.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svgldict.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svgxval.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svkern.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svmm.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svotval.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svpfr.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svpostnm.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svprop.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svpscmap.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svpsinfo.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svsfnt.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svttcmap.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svtteng.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svttglyf.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svwinfnt.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\sfnt.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\t1types.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\internal\tttypes.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\t1tables.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ttnameid.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\tttables.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\tttags.h" />
+    <ClInclude Include="OS-ImGui\include\freetype\ttunpat.h" />
+    <ClInclude Include="OS-ImGui\include\ft2build.h" />
+    <ClInclude Include="OS-ImGui\Minhook\buffer.h" />
+    <ClInclude Include="OS-ImGui\Minhook\hde32.h" />
+    <ClInclude Include="OS-ImGui\Minhook\hde64.h" />
+    <ClInclude Include="OS-ImGui\Minhook\MinHook.h" />
+    <ClInclude Include="OS-ImGui\Minhook\pstdint.h" />
+    <ClInclude Include="OS-ImGui\Minhook\table32.h" />
+    <ClInclude Include="OS-ImGui\Minhook\table64.h" />
+    <ClInclude Include="OS-ImGui\Minhook\trampoline.h" />
+    <ClInclude Include="OS-ImGui\OS-ImGui.h" />
+    <ClInclude Include="OS-ImGui\OS-ImGui_Base.h" />
+    <ClInclude Include="OS-ImGui\OS-ImGui_Exception.hpp" />
+    <ClInclude Include="OS-ImGui\OS-ImGui_External.h" />
+    <ClInclude Include="OS-ImGui\OS-ImGui_Struct.h" />
+    <ClInclude Include="OS-ImGui\stb\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_demo.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_draw.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_freetype.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_impl_dx9.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_tables.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="OS-ImGui\Minhook\buffer.c" />
+    <ClCompile Include="OS-ImGui\Minhook\hde32.c" />
+    <ClCompile Include="OS-ImGui\Minhook\hde64.c" />
+    <ClCompile Include="OS-ImGui\Minhook\hook.c" />
+    <ClCompile Include="OS-ImGui\Minhook\trampoline.c" />
+    <ClCompile Include="OS-ImGui\OS-ImGui.cpp" />
+    <ClCompile Include="OS-ImGui\OS-ImGui_Base.cpp" />
+    <ClCompile Include="OS-ImGui\OS-ImGui_External.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OS-ImGui\Minhook\MinHook.def" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
@@ -77,8 +211,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>$(LibraryPath)</LibraryPath>
-    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>E:\.C项目\Bpex\Bpex\OS-ImGui\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\.C项目\Bpex\Bpex\OS-ImGui\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>E:\.C项目\Bpex\Bpex\include;$(IncludePath)</IncludePath>

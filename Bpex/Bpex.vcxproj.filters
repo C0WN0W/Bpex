@@ -15,7 +15,349 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Driver\mainClass.h">
+    <ClInclude Include="offsets.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Driver\driver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imconfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imgui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imgui_freetype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imgui_impl_dx9.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imgui_impl_dx11.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imgui_impl_win32.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imgui_internal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imstb_rectpack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imstb_textedit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imstb_truetype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\config\ftconfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\config\ftheader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\config\ftmodule.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\config\ftoption.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\config\ftstdlib.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svbdf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svcid.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svfntfmt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svgldict.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svgxval.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svkern.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svmm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svotval.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svpfr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svpostnm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svprop.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svpscmap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svpsinfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svsfnt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svttcmap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svtteng.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svttglyf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\services\svwinfnt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\autohint.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftcalc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftdebug.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftdriver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftgloadr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\fthash.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftmemory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftobjs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftpic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftrfork.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftserv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftstream.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\fttrace.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\ftvalid.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\internal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\psaux.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\pshints.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\sfnt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\t1types.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\internal\tttypes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\freetype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftadvanc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftautoh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftbbox.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftbdf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftbitmap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftbzip2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftcache.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftcffdrv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftchapters.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftcid.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\fterrdef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\fterrors.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftfntfmt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftgasp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftglyph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftgxval.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftgzip.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftimage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftincrem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftlcdfil.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftlist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftlzw.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftmac.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftmm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftmodapi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftmoderr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftotval.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftoutln.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftpfr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftrender.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftsizes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftsnames.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftstroke.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftsynth.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftsystem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\fttrigon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftttdrv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\fttypes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ftwinfnt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\t1tables.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ttnameid.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\tttables.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\tttags.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\freetype\ttunpat.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\include\ft2build.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\Minhook\buffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\Minhook\hde32.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\Minhook\hde64.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\Minhook\MinHook.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\Minhook\pstdint.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\Minhook\table32.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\Minhook\table64.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\Minhook\trampoline.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\stb\stb_image.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\OS-ImGui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\OS-ImGui_Base.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\OS-ImGui_Exception.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\OS-ImGui_External.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\OS-ImGui_Struct.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -23,5 +365,61 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_demo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_draw.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_freetype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_impl_dx9.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_impl_dx11.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_impl_win32.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_tables.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_widgets.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\Minhook\buffer.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\Minhook\hde32.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\Minhook\hde64.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\Minhook\hook.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\Minhook\trampoline.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\OS-ImGui.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\OS-ImGui_Base.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\OS-ImGui_External.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OS-ImGui\Minhook\MinHook.def">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>
