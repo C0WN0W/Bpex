@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="configs.hpp" />
     <ClInclude Include="Driver\driver.h" />
+    <ClInclude Include="entity.hpp" />
+    <ClInclude Include="menu.hpp" />
     <ClInclude Include="offsets.h" />
     <ClInclude Include="OS-ImGui\imgui\imconfig.h" />
     <ClInclude Include="OS-ImGui\imgui\imgui.h" />
@@ -134,9 +137,14 @@
     <ClInclude Include="OS-ImGui\OS-ImGui_External.h" />
     <ClInclude Include="OS-ImGui\OS-ImGui_Struct.h" />
     <ClInclude Include="OS-ImGui\stb\stb_image.h" />
+    <ClInclude Include="renders.hpp" />
+    <ClInclude Include="structs.hpp" />
+    <ClInclude Include="utils.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu.cpp" />
     <ClCompile Include="OS-ImGui\imgui\imgui.cpp" />
     <ClCompile Include="OS-ImGui\imgui\imgui_demo.cpp" />
     <ClCompile Include="OS-ImGui\imgui\imgui_draw.cpp" />
@@ -154,6 +162,8 @@
     <ClCompile Include="OS-ImGui\OS-ImGui.cpp" />
     <ClCompile Include="OS-ImGui\OS-ImGui_Base.cpp" />
     <ClCompile Include="OS-ImGui\OS-ImGui_External.cpp" />
+    <ClCompile Include="renders.cpp" />
+    <ClCompile Include="structs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="OS-ImGui\Minhook\MinHook.def" />
@@ -211,7 +221,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>E:\.C项目\Bpex\Bpex\OS-ImGui\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>E:\.C项目\Bpex\Bpex\Driver;E:\.C项目\Bpex\Bpex\OS-ImGui\lib;$(LibraryPath)</LibraryPath>
     <IncludePath>E:\.C项目\Bpex\Bpex\OS-ImGui\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -271,18 +281,19 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>

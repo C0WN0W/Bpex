@@ -360,6 +360,24 @@
     <ClInclude Include="OS-ImGui\OS-ImGui_Struct.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="structs.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="configs.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="renders.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -414,6 +432,18 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="OS-ImGui\OS-ImGui_External.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="structs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="entity.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="renders.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
