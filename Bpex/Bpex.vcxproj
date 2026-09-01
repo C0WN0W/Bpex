@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="aimbot.hpp" />
     <ClInclude Include="cheats.hpp" />
     <ClInclude Include="configs.hpp" />
     <ClInclude Include="Driver\driver.h" />
     <ClInclude Include="entity.hpp" />
+    <ClInclude Include="KmBox\KmboxNet.hpp" />
     <ClInclude Include="menu.hpp" />
     <ClInclude Include="offsets.h" />
     <ClInclude Include="OS-ImGui\imgui\imconfig.h" />
@@ -138,11 +140,13 @@
     <ClInclude Include="OS-ImGui\OS-ImGui_External.h" />
     <ClInclude Include="OS-ImGui\OS-ImGui_Struct.h" />
     <ClInclude Include="OS-ImGui\stb\stb_image.h" />
+    <ClInclude Include="rcs.hpp" />
     <ClInclude Include="renders.hpp" />
     <ClInclude Include="structs.hpp" />
     <ClInclude Include="utils.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="aimbot.cpp" />
     <ClCompile Include="cheats.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
@@ -164,6 +168,7 @@
     <ClCompile Include="OS-ImGui\OS-ImGui.cpp" />
     <ClCompile Include="OS-ImGui\OS-ImGui_Base.cpp" />
     <ClCompile Include="OS-ImGui\OS-ImGui_External.cpp" />
+    <ClCompile Include="rcs.cpp" />
     <ClCompile Include="renders.cpp" />
     <ClCompile Include="structs.cpp" />
   </ItemGroup>
@@ -223,7 +228,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>E:\.C项目\Bpex\Bpex\Driver;E:\.C项目\Bpex\Bpex\OS-ImGui\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>E:\.C项目\Bpex\Bpex\KmBox;E:\.C项目\Bpex\Bpex\Driver;E:\.C项目\Bpex\Bpex\OS-ImGui\lib;$(LibraryPath)</LibraryPath>
     <IncludePath>E:\.C项目\Bpex\Bpex\OS-ImGui\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -295,7 +300,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freetype.lib;KmBoxLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>

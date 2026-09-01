@@ -1,6 +1,8 @@
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "cheats.hpp"
 
+#include "rcs.hpp"
+
 std::mutex Cheat::taskMutex;
 std::condition_variable Cheat::taskCV;
 std::atomic<bool> Cheat::running{ true };
@@ -126,6 +128,9 @@ void Cheat::Run()
 		if (cfg::ArmorESP)
 			Draw::DrawArmor({ box.x, box.y }, { box.z, box.w }, plyer.Shield, plyer.MaxShield);
 	}
+
+	RecoilControl::run(localPlayer.Ptr);
+
 
 	DrawMenu();
 }

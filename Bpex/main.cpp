@@ -5,6 +5,7 @@
 #include <ctime>
 
 #include "cheats.hpp"
+#include "aimbot.hpp"
 
 using namespace std;
 HWND hwnd = 0;
@@ -54,6 +55,9 @@ int main()
 		std::thread matrixTh(Cheat::MatrixUpdater);
 		SetThreadPriority(matrixTh.native_handle(), THREAD_PRIORITY_TIME_CRITICAL);
 		matrixTh.detach();
+
+		std::thread aimbot(Aimbot::Run);
+		aimbot.detach();
 
 		std::thread worker(Cheat::WorkerThread);
 		worker.detach();

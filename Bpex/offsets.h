@@ -9,6 +9,8 @@ const long long LOCAL_ENTITY_HANDLE = 0x2505fe0;
 const long long NAMELIST = 0x87dd320;
 
 const long long TIMEBASE = 0X2150;
+const long long ViewAngle = 0x25f0;
+const long long PunchAngle = 0x2500; // m_currentFrameLocalPlayer.m_vecPunchWeapon_Angle
 const long long VecAbsOrigin = 0x16C;
 const long long iTeamNum = 0x334;
 const long long iHealth = 0x324;
@@ -26,3 +28,4 @@ const long long SignifierName = 0x478;
 const long long LastVisibleTime = 0x1a74;
 const long long LastCrosshairTime = LastVisibleTime + 0x8;
 const long long ViewOffset = 0xdc;
+const long long bZooming = 0x1cc1;

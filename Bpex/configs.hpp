@@ -48,4 +48,13 @@ namespace cfg
 	inline ImColor KnockColor = ImColor(255, 255, 0, 255);
 	inline ImColor BoneColor = ImColor(0, 255, 0, 255);
 	inline ImColor UnvisColor = ImColor(255, 255, 255, 255);
+
+	inline bool rcs = false;
+
+	inline bool aimbotEnabled = true;
+	inline bool NotAimAtKnocked = false;
+	inline float aimbotFov = 50.f;
+	inline float aimbotFov_ADS = 100.f;
+	inline float aimbotSmooth = 10.f;
+	inline float aimbotSmooth_zoomed = 10.f;
 }

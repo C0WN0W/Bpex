@@ -381,6 +381,15 @@
     <ClInclude Include="cheats.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="rcs.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="KmBox\KmboxNet.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="aimbot.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -450,6 +459,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="cheats.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rcs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="aimbot.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

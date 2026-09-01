@@ -96,7 +96,7 @@ void Draw::DrawArmor(ImVec2 Start, ImVec2 End, int currentArmor, int MaxArmor)
         armorColor = colorLightGray;
     }
 
-	std::string armorText = "SH " + std::to_string(currentArmor) + " / " + std::to_string(MaxArmor);
+	std::string armorText = "SH " + std::to_string(currentArmor);
     auto drawList = ImGui::GetBackgroundDrawList();
     drawList->AddText(ImVec2(textPos.x, textPos.y), armorColor, armorText.c_str());
 }
