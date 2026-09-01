@@ -28,7 +28,7 @@ void DrawMenu()
 			ImGui::Columns(1);
 			ImGui::Separator();
 			ImGui::SliderInt("Render Distance", &cfg::RenderDistance, 10, 500);
-			ImGui::Checkbox("Visible Check", &cfg::VisCheck);
+			// ImGui::Checkbox("Visible Check", &cfg::VisCheck);
 			ImGui::EndTabItem();
 		}
 

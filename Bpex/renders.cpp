@@ -55,7 +55,7 @@ void Draw::DrawBox(ImVec2 Start, ImVec2 End, ImColor color, float thickness, flo
     ImGui::GetBackgroundDrawList()->AddRect(Start, Start + End, color, rounding, 0, thickness);
 }
 
-void DrawHealth(ImVec2 Start, ImVec2 End, int currentHealth)
+void Draw::DrawHealth(ImVec2 Start, ImVec2 End, int currentHealth)
 {
     float targetHealth = (float)currentHealth / (float)100 * 255.f;
     float col_r = 255.f - targetHealth;
@@ -66,7 +66,6 @@ void DrawHealth(ImVec2 Start, ImVec2 End, int currentHealth)
 
     auto drawList = ImGui::GetBackgroundDrawList();
 	std::string healthText = "HP " + std::to_string(currentHealth);
-	drawList->AddText(ImVec2(textPos.x - 1, textPos.y - 1), IM_COL32(0, 0, 0, 255), healthText.c_str());
 	drawList->AddText(ImVec2(textPos.x, textPos.y), IM_COL32((int)col_r, (int)col_g, (int)col_b, 255), healthText.c_str());
 }
 
@@ -76,7 +75,7 @@ void Draw::DrawArmor(ImVec2 Start, ImVec2 End, int currentArmor, int MaxArmor)
 
     currentArmor = max(0, min(currentArmor, MaxArmor));
 
-    ImVec2 textPos = ImVec2(End.x + 1, Start.y + 20);
+    ImVec2 textPos = ImVec2(End.x + 1, Start.y + 12);
 
     ImColor colorLightGray = ImColor(247, 247, 247, 255);
     ImColor colorSkyBlue = ImColor(39, 178, 255, 255);
@@ -99,7 +98,6 @@ void Draw::DrawArmor(ImVec2 Start, ImVec2 End, int currentArmor, int MaxArmor)
 
 	std::string armorText = "SH " + std::to_string(currentArmor) + " / " + std::to_string(MaxArmor);
     auto drawList = ImGui::GetBackgroundDrawList();
-    drawList->AddText(ImVec2(textPos.x - 1, textPos.y - 1), IM_COL32(0, 0, 0, 255), armorText.c_str());
     drawList->AddText(ImVec2(textPos.x, textPos.y), armorColor, armorText.c_str());
 }
 

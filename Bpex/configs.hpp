@@ -45,6 +45,7 @@ namespace cfg
 
 	inline ImColor BoxColor = ImColor(0, 255, 0, 255);
 	inline ImColor LineColor = ImColor(0, 255, 0, 255);
-	inline ImColor KnockColor = ImColor(255, 0, 0, 255);
-	inline ImColor BoneColor = ImColor(255, 255, 255, 255);
+	inline ImColor KnockColor = ImColor(255, 255, 0, 255);
+	inline ImColor BoneColor = ImColor(0, 255, 0, 255);
+	inline ImColor UnvisColor = ImColor(255, 255, 255, 255);
 }

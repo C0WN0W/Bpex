@@ -378,6 +378,9 @@
     <ClInclude Include="renders.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="cheats.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -444,6 +447,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="renders.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cheats.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

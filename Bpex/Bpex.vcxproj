@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cheats.hpp" />
     <ClInclude Include="configs.hpp" />
     <ClInclude Include="Driver\driver.h" />
     <ClInclude Include="entity.hpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="utils.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cheats.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
