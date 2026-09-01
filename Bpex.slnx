@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Bpex/Bpex.vcxproj" Id="a54e363e-2fa3-4123-a736-3ad3a66ee76a" />
+</Solution>
