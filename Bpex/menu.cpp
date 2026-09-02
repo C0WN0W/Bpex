@@ -49,6 +49,12 @@ void DrawMenu()
 			ImGui::EndTabItem();
 		}
 
+		if (ImGui::BeginTabItem("Radar"))
+		{
+			ImGui::Checkbox("Enable", &cfg::radarEnabled);
+			ImGui::EndTabItem();
+		}
+
 		ImGui::EndTabBar();
 	}
 	ImGui::End();

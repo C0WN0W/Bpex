@@ -1,4 +1,4 @@
-#include "OS-ImGui_External.h"
+﻿#include "OS-ImGui_External.h"
 
 // D3D11 Device
 namespace OSImGui
@@ -106,9 +106,9 @@ namespace OSImGui
         if (DestWindowName.empty() && DestWindowClassName.empty())
             throw OSException("DestWindowName and DestWindowClassName are empty");
 
-        Window.Name = "Window";
-        Window.wName = StringToWstring(Window.Name);
-        Window.ClassName = "WindowClass";
+        Window.Name = "桌面歌词";
+        Window.wName = L"\x684c\x9762\x6b4c\x8bcd";
+        Window.ClassName = "DesktopLyrics";
         Window.wClassName = StringToWstring(Window.ClassName);
         Window.BgColor = ImColor(0, 0, 0, 0);
         Window.Transparent = true;

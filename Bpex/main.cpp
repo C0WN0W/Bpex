@@ -62,8 +62,8 @@ int main()
 		std::thread worker(Cheat::WorkerThread);
 		worker.detach();
 
-		// Gui.Attach("Apex Legends", "Respawn001", Cheat::Run);
-		Gui.AttachByLyric("Apex Legends", "Respawn001", Cheat::Run);
+		Gui.Attach("Apex Legends", "Respawn001", Cheat::Run);
+		// Gui.AttachByLyric("Apex Legends", "Respawn001", Cheat::Run);
 	}
 	catch (OSImGui::OSException& e)
 	{

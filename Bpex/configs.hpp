@@ -37,7 +37,7 @@ namespace cfg
 	inline bool LineESP = false;
 	inline bool HealthESP = false;
 	inline bool ArmorESP = false;
-	inline bool KnockESP = false;
+	inline bool KnockESP = true;
 	inline bool TeamESP = false;
 	inline bool BoneESP = false;
 	inline int RenderDistance = 300;
@@ -53,8 +53,11 @@ namespace cfg
 
 	inline bool aimbotEnabled = true;
 	inline bool NotAimAtKnocked = false;
-	inline float aimbotFov = 50.f;
-	inline float aimbotFov_ADS = 100.f;
+	inline bool drawFov = true;
+	inline float aimbotFov = 100.f;
+	inline float aimbotFov_ADS = 50;
 	inline float aimbotSmooth = 10.f;
 	inline float aimbotSmooth_zoomed = 10.f;
+
+	inline bool radarEnabled = false;
 }
