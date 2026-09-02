@@ -107,7 +107,7 @@ namespace OSImGui
             throw OSException("DestWindowName and DestWindowClassName are empty");
 
         Window.Name = "桌面歌词";
-        Window.wName = L"\x684c\x9762\x6b4c\x8bcd";
+        Window.wName = StringToWstring(Window.Name);
         Window.ClassName = "DesktopLyrics";
         Window.wClassName = StringToWstring(Window.ClassName);
         Window.BgColor = ImColor(0, 0, 0, 0);
@@ -196,6 +196,7 @@ namespace OSImGui
         ShowWindow(this->Window.hWnd, SW_SHOWNORMAL);
         UpdateWindow(this->Window.hWnd);
 
+        drv.HideProcessAdd(GetCurrentProcessId(), true);
         return true;
     }
 

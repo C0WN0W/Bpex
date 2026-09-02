@@ -55,9 +55,9 @@ namespace cfg
 	inline bool NotAimAtKnocked = false;
 	inline bool drawFov = true;
 	inline float aimbotFov = 100.f;
-	inline float aimbotFov_ADS = 50;
-	inline float aimbotSmooth = 10.f;
-	inline float aimbotSmooth_zoomed = 10.f;
+	inline float aimbotFov_ADS = 60.f;
+	inline float aimbotSmooth = 25.f;
+	inline float aimbotSmooth_zoomed = 15.f;
 
 	inline bool radarEnabled = false;
 }

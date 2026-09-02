@@ -65,7 +65,7 @@ void Draw::DrawHealth(ImVec2 Start, ImVec2 End, int currentHealth)
     ImVec2 textPos = ImVec2(End.x + 1, Start.y);
 
     auto drawList = ImGui::GetBackgroundDrawList();
-	std::string healthText = std::to_string(currentHealth);
+	std::string healthText = "HP " + std::to_string(currentHealth);
 	drawList->AddText(ImVec2(textPos.x, textPos.y), IM_COL32((int)col_r, (int)col_g, (int)col_b, 255), healthText.c_str());
 }
 
@@ -75,7 +75,7 @@ void Draw::DrawArmor(ImVec2 Start, ImVec2 End, int currentArmor, int MaxArmor)
 
     currentArmor = max(0, min(currentArmor, MaxArmor));
 
-    ImVec2 textPos = ImVec2(End.x + 1, Start.y + 20);
+    ImVec2 textPos = ImVec2(End.x + 1, Start.y + 12);
 
     ImColor colorLightGray = ImColor(247, 247, 247, 255);
     ImColor colorSkyBlue = ImColor(39, 178, 255, 255);
@@ -96,7 +96,7 @@ void Draw::DrawArmor(ImVec2 Start, ImVec2 End, int currentArmor, int MaxArmor)
         armorColor = colorLightGray;
     }
 
-	std::string armorText = std::to_string(currentArmor);
+	std::string armorText = "SH " + std::to_string(currentArmor);
     auto drawList = ImGui::GetBackgroundDrawList();
     drawList->AddText(ImVec2(textPos.x, textPos.y), armorColor, armorText.c_str());
 }

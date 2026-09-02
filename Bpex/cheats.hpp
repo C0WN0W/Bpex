@@ -5,6 +5,7 @@
 #include <mutex>
 #include <atomic>
 #include <queue>
+#include <cmath>
 #include <condition_variable>
 
 #include "renders.hpp"
@@ -39,4 +40,7 @@ namespace Cheat
 	ImVec4 CalcRect(Player entity, Matrix m);
 	bool ClacRect(RectData rect, ScreenPosData& screen, bool isKnocked);
 	bool IsBoxValid(ImVec4 box);
+	Vector2 CalcRadarPos(Vector3 entityPos, Vector3 localPos, float localYaw, float radarScale);
+
+	Vector3 GetViewAngle(uint64_t LocalPlayerPtr);
 }

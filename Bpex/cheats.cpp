@@ -53,7 +53,7 @@ void Cheat::WorkerThread() {
 		workingList->clear();
 
 		std::string levelName = GetLevelName();
-		// std::cout << levelName << std::endl;
+		//std::cout << levelName << std::endl;
 		int loopSize = (levelName == "mp_rr_canyonlands_staging_mu1") ? 10000 : 64;
 
 		for (int i = 0; i < loopSize; i++) {
@@ -105,6 +105,36 @@ void Cheat::Run()
 
 	for (const auto& plyer : *renderList)
 	{
+		if (cfg::radarEnabled)
+		{
+			ImGui::SetNextWindowSize(ImVec2(400, 400), ImGuiCond_Always);
+			ImGui::SetNextWindowBgAlpha(0.1f);
+			ImGui::Begin("Radar", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize);
+			{
+				ImVec2 WindowPos = ImGui::GetWindowPos();
+				ImVec2 WindowSize = ImGui::GetWindowSize();
+
+				ImGui::GetWindowDrawList()->AddLine(
+					WindowPos + ImVec2(WindowSize.x * 0.5f, 0),
+					WindowPos + ImVec2(WindowSize.x * 0.5f, WindowSize.y),
+					ImColor(255, 255, 255, 75), 1.f);
+
+				ImGui::GetWindowDrawList()->AddLine(
+					WindowPos + ImVec2(0, WindowSize.y * 0.5f),
+					WindowPos + ImVec2(WindowSize.x, WindowSize.y * 0.5f),
+					ImColor(255, 255, 255, 75), 1.f);
+
+				Vector2 radarPos = CalcRadarPos(plyer.Position, localPlayer.Position, GetViewAngle(localPlayer.Ptr).y, 30.f);
+
+				if (plyer.TeamID != localPlayer.TeamID)
+				{
+					ImGui::GetWindowDrawList()->AddCircleFilled(WindowPos + ImVec2(200 + radarPos.x, 200 + radarPos.y), 6.f, ImColor(0, 0, 0, 255));
+					ImGui::GetWindowDrawList()->AddCircleFilled(WindowPos + ImVec2(200 + radarPos.x, 200 + radarPos.y), 5.f, ImColor(255, 0, 0, 255));
+				}
+			}
+			ImGui::End();
+		}
+
 		ImVec4 box = CalcRect(plyer, Global::ViewMatrix);
 
 		if (!IsBoxValid(box)) continue;
@@ -127,12 +157,33 @@ void Cheat::Run()
 			Draw::DrawHealth(ImVec2(box.x, box.y), ImVec2(box.z, box.w), plyer.Health);
 		if (cfg::ArmorESP)
 			Draw::DrawArmor({ box.x, box.y }, { box.z, box.w }, plyer.Shield, plyer.MaxShield);
+
 	}
 
 	RecoilControl::run(localPlayer.Ptr);
 
-
+	if (cfg::drawFov)
+		ImGui::GetBackgroundDrawList()->AddCircle(ImVec2(Global::SightCenter.x, Global::SightCenter.y), cfg::aimbotFov, ImColor(255, 255, 255, 75), 100, 1.f);
 	DrawMenu();
+}
+
+Vector2 Cheat::CalcRadarPos(Vector3 playerPos, Vector3 localPos, float localYaw, float radarScale)
+{
+	Vector2 TmpPos = Vector2(playerPos.x - localPos.x, playerPos.y - localPos.y);
+	float absDistance = playerPos.distance_to(localPos);
+
+	float angle = atan2(TmpPos.y, TmpPos.x) * (180.f / 3.1415927f);
+	float delta = angle - localYaw + 90.f;
+
+	Vector2 absPos = Vector2(
+		absDistance * cos(delta * (3.1415927f / 180.f)),
+		absDistance * sin(delta * (3.1415927f / 180.f))
+	);
+	
+	absPos.x /= radarScale;
+	absPos.y /= radarScale;
+	
+	return { absPos.x, -absPos.y };
 }
 
 ImVec4 Cheat::CalcRect(Player entity, Matrix m)
@@ -152,4 +203,9 @@ ImVec4 Cheat::CalcRect(Player entity, Matrix m)
 	x1 = (int)boxLeft; y1 = (int)hs.y; x2 = (int)boxRight; y2 = (int)bs.y;
 
 	return ImVec4((int)boxLeft, (int)hs.y, (int)boxRight, (int)bs.y);
+}
+
+Vector3 Cheat::GetViewAngle(uint64_t LocalPlayerPtr)
+{
+	return drv.RPM<Vector3>(LocalPlayerPtr + ViewAngle);
 }

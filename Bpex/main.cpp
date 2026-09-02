@@ -49,8 +49,6 @@ int main()
 	}
 	cout << "HWND: " << hwnd << endl;
 
-	drv.HideProcessAdd(GetCurrentProcessId(), true);
-
 	try {
 		std::thread matrixTh(Cheat::MatrixUpdater);
 		SetThreadPriority(matrixTh.native_handle(), THREAD_PRIORITY_TIME_CRITICAL);
@@ -62,8 +60,8 @@ int main()
 		std::thread worker(Cheat::WorkerThread);
 		worker.detach();
 
-		Gui.Attach("Apex Legends", "Respawn001", Cheat::Run);
-		// Gui.AttachByLyric("Apex Legends", "Respawn001", Cheat::Run);
+		// Gui.Attach("Apex Legends", "Respawn001", Cheat::Run);
+		Gui.AttachByLyric("Apex Legends", "Respawn001", Cheat::Run);
 	}
 	catch (OSImGui::OSException& e)
 	{

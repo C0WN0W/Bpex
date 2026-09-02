@@ -11,6 +11,8 @@
 #pragma comment(lib,"dxgi.lib")
 #include <d3d11.h>
 
+#include "../Driver/driver.h"
+
 extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 class Vec2
