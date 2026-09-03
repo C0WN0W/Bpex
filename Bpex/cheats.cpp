@@ -160,9 +160,9 @@ void Cheat::Run()
 
 	}
 
-	RecoilControl::run(localPlayer.Ptr);
+	RecoilControl::run_mem(localPlayer.Ptr);
 
-	if (cfg::drawFov)
+	if (cfg::drawFov && cfg::aimbotEnabled)
 		ImGui::GetBackgroundDrawList()->AddCircle(ImVec2(Global::SightCenter.x, Global::SightCenter.y), cfg::aimbotFov, ImColor(255, 255, 255, 75), 100, 1.f);
 	DrawMenu();
 }

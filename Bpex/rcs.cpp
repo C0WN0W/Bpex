@@ -45,3 +45,38 @@ void RecoilControl::run(uint64_t LocalPlayerPtr)
 		OldPunch = { 0,0 };
 	}
 }
+
+void RecoilControl::run_mem(uint64_t LocalPlayerPtr)
+{
+	static Vector2 OldPunch = { 0,0 };
+
+	if (!cfg::rcs) return;
+
+	if ((GetAsyncKeyState(VK_RBUTTON) & 0x8000))
+	{
+		Vector3 viewAngle = GetViewAngle(LocalPlayerPtr);
+		Vector2 punchAngle = GetPunchAngle(LocalPlayerPtr);
+
+		Vector2 delta = punchAngle - OldPunch;
+		if (fabs(delta.x) > 5.0f || fabs(delta.y) > 5.0f) {
+			OldPunch = punchAngle;
+			return; // Filter out sudden large changes
+		}
+
+		if (punchAngle.x >= 0) return;
+
+		float pitch = viewAngle.x + (OldPunch.x - punchAngle.x);
+		float yaw = viewAngle.y + (OldPunch.y - punchAngle.y);
+
+		Vector3 newAngle = { pitch, yaw, 0 };
+
+		newAngle = NormalizeAngle(newAngle);
+
+		drv.WPM<Vector3>(LocalPlayerPtr + ViewAngle, newAngle);
+		OldPunch = punchAngle;
+	}
+	else
+	{
+		OldPunch = { 0,0 };
+	}
+}

@@ -65,7 +65,10 @@ void Draw::DrawHealth(ImVec2 Start, ImVec2 End, int currentHealth)
     ImVec2 textPos = ImVec2(End.x + 1, Start.y);
 
     auto drawList = ImGui::GetBackgroundDrawList();
-	std::string healthText = "HP " + std::to_string(currentHealth);
+	std::string healthText = std::to_string(currentHealth);
+    ImVec2 textSize = ImGui::CalcTextSize(healthText.c_str());
+    ImVec2 textbgOffset = ImVec2(1, 1);
+    drawList->AddRectFilled(textPos - textbgOffset, textPos + textSize + textbgOffset, IM_COL32(0, 0, 0, 255));
 	drawList->AddText(ImVec2(textPos.x, textPos.y), IM_COL32((int)col_r, (int)col_g, (int)col_b, 255), healthText.c_str());
 }
 
@@ -96,8 +99,11 @@ void Draw::DrawArmor(ImVec2 Start, ImVec2 End, int currentArmor, int MaxArmor)
         armorColor = colorLightGray;
     }
 
-	std::string armorText = "SH " + std::to_string(currentArmor);
+	std::string armorText = std::to_string(currentArmor);
+    ImVec2 textSize = ImGui::CalcTextSize(armorText.c_str());
+	ImVec2 textbgOffset = ImVec2(1, 1);
     auto drawList = ImGui::GetBackgroundDrawList();
+    drawList->AddRectFilled(textPos - textbgOffset, textPos + textSize + textbgOffset, IM_COL32(0, 0, 0, 255));
     drawList->AddText(ImVec2(textPos.x, textPos.y), armorColor, armorText.c_str());
 }
 

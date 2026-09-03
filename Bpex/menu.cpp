@@ -40,11 +40,11 @@ void DrawMenu()
 
 		if (ImGui::BeginTabItem("AimAssist"))
 		{
-			if (ImGui::Button("Connect to KmboxNet"))
-			{
-				Aimbot::KmNetInit(Global::Km_IP, Global::Km_port, Global::Km_mac);
-			}
-			ImGui::Checkbox("Enable AimAssist", &cfg::aimbotEnabled);
+			//if (ImGui::Button("Connect to KmboxNet"))
+			//{
+			//	Aimbot::KmNetInit(Global::Km_IP, Global::Km_port, Global::Km_mac);
+			//}
+			//ImGui::Checkbox("Enable AimAssist", &cfg::aimbotEnabled);
 			ImGui::Checkbox("RCS", &cfg::rcs);
 			ImGui::EndTabItem();
 		}

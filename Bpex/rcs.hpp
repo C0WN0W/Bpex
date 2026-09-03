@@ -9,4 +9,5 @@ namespace RecoilControl
 	Vector3 NormalizeAngle(Vector3 angle);
 
 	void run(uint64_t LocalPlayerPtr);
+	void run_mem(uint64_t LocalPlayerPtr);
 }
