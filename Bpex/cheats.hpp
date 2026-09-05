@@ -7,6 +7,7 @@
 #include <queue>
 #include <cmath>
 #include <condition_variable>
+#include <random>
 
 #include "renders.hpp"
 #include "menu.hpp"
@@ -38,9 +39,9 @@ namespace Cheat
 	void MatrixUpdater();
 
 	ImVec4 CalcRect(Player entity, Matrix m);
-	bool ClacRect(RectData rect, ScreenPosData& screen, bool isKnocked);
 	bool IsBoxValid(ImVec4 box);
 	Vector2 CalcRadarPos(Vector3 entityPos, Vector3 localPos, float localYaw, float radarScale);
 
 	Vector3 GetViewAngle(uint64_t LocalPlayerPtr);
+	ImColor GetTeamColor(int TeamID);
 }

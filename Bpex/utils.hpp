@@ -1,26 +1,6 @@
 #pragma once
 #include "configs.hpp"
 
-inline int GlowSelectToGlowID(int select)
-{
-    switch (select)
-    {
-    case 0: return 24; // 黄色
-    case 1: return 37; // 白色
-    case 2: return 47; // 蓝色
-    case 3: return 50; // 橙色
-    case 4: return 52; // 绿色
-    case 5: return 54; // 紫色
-    case 6: return 64; // 灰色
-    case 7: return 83; // 黑色
-    case 8: return 65; // 高光
-    case 9: return 2;  // 屁男
-    case 10: return 35;// 靶场
-    case 11: return 10;// 描边
-    case 12: return 57;// 闪烁
-    }
-}
-
 inline bool W2S(const Vector3& entityPos, RectData& box, float& scale,
     const Matrix& mat)
 {

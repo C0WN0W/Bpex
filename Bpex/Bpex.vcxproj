@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="aimbot.hpp" />
     <ClInclude Include="cheats.hpp" />
     <ClInclude Include="configs.hpp" />
     <ClInclude Include="Driver\driver.h" />
@@ -140,13 +139,11 @@
     <ClInclude Include="OS-ImGui\OS-ImGui_External.h" />
     <ClInclude Include="OS-ImGui\OS-ImGui_Struct.h" />
     <ClInclude Include="OS-ImGui\stb\stb_image.h" />
-    <ClInclude Include="rcs.hpp" />
     <ClInclude Include="renders.hpp" />
     <ClInclude Include="structs.hpp" />
     <ClInclude Include="utils.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="aimbot.cpp" />
     <ClCompile Include="cheats.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
@@ -168,7 +165,6 @@
     <ClCompile Include="OS-ImGui\OS-ImGui.cpp" />
     <ClCompile Include="OS-ImGui\OS-ImGui_Base.cpp" />
     <ClCompile Include="OS-ImGui\OS-ImGui_External.cpp" />
-    <ClCompile Include="rcs.cpp" />
     <ClCompile Include="renders.cpp" />
     <ClCompile Include="structs.cpp" />
   </ItemGroup>

@@ -1,8 +1,6 @@
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "cheats.hpp"
 
-#include "rcs.hpp"
-
 std::mutex Cheat::taskMutex;
 std::condition_variable Cheat::taskCV;
 std::atomic<bool> Cheat::running{ true };
@@ -18,7 +16,7 @@ namespace GlobalBuffer {
 	Player localPlayerSnapshot;
 }
 
-
+// 矩阵线程
 void Cheat::MatrixUpdater() {
 	uint64_t viewRender = drv.RPM<uint64_t>(Global::GameBase + VIEW_RENDER);
 	uint64_t viewMatrixPtr = drv.RPM<uint64_t>(viewRender + VIEW_MATRIX);
@@ -32,6 +30,7 @@ void Cheat::MatrixUpdater() {
 	}
 }
 
+// 玩家数据线程
 void Cheat::WorkerThread() {
 	while (running) {
 		uintptr_t localPtr = GetLocalPlayerPtr();
@@ -45,15 +44,12 @@ void Cheat::WorkerThread() {
 		local.Ptr = localPtr;
 		local.Position = GetPosition(localPtr);
 		local.TeamID = GetTeamID(localPtr);
-		//local.Zoomed = drv.RPM<int>(localPtr + Offset::Player::Zooming);
-		//local.CameraPos = drv.RPM<Vector3>(localPtr + Offset::Player::CameraPos);
 		GlobalBuffer::localPlayerSnapshot = local;
 
 		std::vector<Player>* workingList = GlobalBuffer::backBuffer.load();
 		workingList->clear();
 
 		std::string levelName = GetLevelName();
-		//std::cout << levelName << std::endl;
 		int loopSize = (levelName == "mp_rr_canyonlands_staging_mu1") ? 10000 : 64;
 
 		for (int i = 0; i < loopSize; i++) {
@@ -80,7 +76,7 @@ void Cheat::WorkerThread() {
 			p.Shield = drv.RPM<int>(ent + iShield);
 			p.MaxShield = drv.RPM<int>(ent + iMaxShield);
 			p.IsKnocked = GetKnocked(ent);
-			// p.Velocity = drv.RPM<Vector3>(ent + Offset::Player::Velocity);
+			p.TeamID = GetTeamID(ent);
 
 			workingList->push_back(p);
 		}
@@ -91,6 +87,7 @@ void Cheat::WorkerThread() {
 	}
 }
 
+// 判断绘制的方框是否在视野内
 bool Cheat::IsBoxValid(ImVec4 box)
 {
 	if (box.x == 0 && box.z == 0) return false;
@@ -107,6 +104,9 @@ void Cheat::Run()
 	{
 		if (cfg::radarEnabled)
 		{
+			// 这里是400x400像素大小的窗口，如果你找到游戏小地
+			// 图比例和小地图的实际大小，可以把这个窗口调整并且
+			// 覆盖到小地图雷达上，这是一个简单的外部小雷达实现
 			ImGui::SetNextWindowSize(ImVec2(400, 400), ImGuiCond_Always);
 			ImGui::SetNextWindowBgAlpha(0.1f);
 			ImGui::Begin("Radar", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize);
@@ -114,18 +114,17 @@ void Cheat::Run()
 				ImVec2 WindowPos = ImGui::GetWindowPos();
 				ImVec2 WindowSize = ImGui::GetWindowSize();
 
+				// 雷达十字
 				ImGui::GetWindowDrawList()->AddLine(
 					WindowPos + ImVec2(WindowSize.x * 0.5f, 0),
 					WindowPos + ImVec2(WindowSize.x * 0.5f, WindowSize.y),
 					ImColor(255, 255, 255, 75), 1.f);
-
 				ImGui::GetWindowDrawList()->AddLine(
 					WindowPos + ImVec2(0, WindowSize.y * 0.5f),
 					WindowPos + ImVec2(WindowSize.x, WindowSize.y * 0.5f),
 					ImColor(255, 255, 255, 75), 1.f);
-
+				// 雷达玩家点
 				Vector2 radarPos = CalcRadarPos(plyer.Position, localPlayer.Position, GetViewAngle(localPlayer.Ptr).y, 30.f);
-
 				if (plyer.TeamID != localPlayer.TeamID)
 				{
 					ImGui::GetWindowDrawList()->AddCircleFilled(WindowPos + ImVec2(200 + radarPos.x, 200 + radarPos.y), 6.f, ImColor(0, 0, 0, 255));
@@ -141,32 +140,32 @@ void Cheat::Run()
 
 		if (cfg::BoxESP)
 		{
+			// 绘制方框，如果玩家被击倒并且启用了击倒ESP，则使用击倒颜色，否则根据玩家是否可见选择颜色
 			ImColor color = (plyer.IsKnocked && cfg::KnockESP) ? cfg::KnockColor : plyer.IsVisible ? cfg::BoxColor : cfg::UnvisColor;
 			Draw::DrawBox(box.x, box.y, box.z, box.w, color, 1.f, false);
 		}
 
 		if (cfg::LineESP)
 		{
+			// 射线颜色同理
 			ImColor color = (plyer.IsKnocked && cfg::KnockESP) ? cfg::KnockColor : plyer.IsVisible ? cfg::LineColor : cfg::UnvisColor;
 			Draw::DrawLine(ImVec2((box.x + box.z) / 2.f, box.w),
 				ImVec2(Global::SightCenter.x, Global::ScreenSize.y),color,
 				1.f, false);
 		}
 
+		// 血量、护甲、队伍标签
 		if (cfg::HealthESP)
 			Draw::DrawHealth(ImVec2(box.x, box.y), ImVec2(box.z, box.w), plyer.Health);
 		if (cfg::ArmorESP)
 			Draw::DrawArmor({ box.x, box.y }, { box.z, box.w }, plyer.Shield, plyer.MaxShield);
-
+		if (cfg::TeamESP)
+			Draw::DrawTeam({ box.x, box.y }, { box.z, box.w }, plyer.TeamID, GetTeamColor(plyer.TeamID));		
 	}
-
-	RecoilControl::run_mem(localPlayer.Ptr);
-
-	if (cfg::drawFov && cfg::aimbotEnabled)
-		ImGui::GetBackgroundDrawList()->AddCircle(ImVec2(Global::SightCenter.x, Global::SightCenter.y), cfg::aimbotFov, ImColor(255, 255, 255, 75), 100, 1.f);
 	DrawMenu();
 }
 
+// 3D坐标转换为雷达坐标
 Vector2 Cheat::CalcRadarPos(Vector3 playerPos, Vector3 localPos, float localYaw, float radarScale)
 {
 	Vector2 TmpPos = Vector2(playerPos.x - localPos.x, playerPos.y - localPos.y);
@@ -186,6 +185,7 @@ Vector2 Cheat::CalcRadarPos(Vector3 playerPos, Vector3 localPos, float localYaw,
 	return { absPos.x, -absPos.y };
 }
 
+// 3D坐标转换为屏幕方框数据
 ImVec4 Cheat::CalcRect(Player entity, Matrix m)
 {
 	Vector3 bs, hs;
@@ -208,4 +208,26 @@ ImVec4 Cheat::CalcRect(Player entity, Matrix m)
 Vector3 Cheat::GetViewAngle(uint64_t LocalPlayerPtr)
 {
 	return drv.RPM<Vector3>(LocalPlayerPtr + ViewAngle);
+}
+
+// 伪随机颜色生成函数，确保同一队伍的颜色一致
+ImColor Cheat::GetTeamColor(int TeamID)
+{
+	std::mt19937 rng(TeamID);
+	std::uniform_int_distribution<int> dist(30, 200);
+
+	int r, g, b;
+	while (true) {
+		r = dist(rng);
+		g = dist(rng);
+		b = dist(rng);
+
+		// 防止颜色过亮
+		float luminance = 0.299f * r + 0.587f * g + 0.114f * b;
+		if (luminance < 180.0f) {
+			break;
+		}
+	}
+
+	return ImColor(r, g, b);
 }

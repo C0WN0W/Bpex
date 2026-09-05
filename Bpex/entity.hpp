@@ -39,10 +39,4 @@ std::string GetSignifier(uint64_t Addr);
 
 int get_script_name(uint64_t EntityAddr);
 
-bool IsInCrossHair(uint64_t LocalPlayerPtr, uint64_t EntityPtr);
-
-bool IsOnGround(uint64_t Addr);
-
-Vector3 GetViewOffset(uint64_t Addr);
-
 Vector3 NewHitbox(uintptr_t ent, int HitBox);

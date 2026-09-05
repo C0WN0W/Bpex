@@ -1,12 +1,16 @@
 #include "menu.hpp"
 #include "configs.hpp"
-#include "aimbot.hpp"
 
 void DrawMenu()
 {
-	ImGui::Begin("Bpex", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+	ImGui::Begin("www.92ghai.com", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
+	// BPEX酷狗音乐单透 by CowNow
 	{
 		ImGui::BeginTabBar("TabBar", ImGuiTabBarFlags_FittingPolicyScroll | ImGuiTabBarFlags_NoTooltip);
+		// 绘制部分
+		// 方框 射线 倒地判断 可视判断
+		// 血量 护甲 队伍标签
+		// 透视范围调整
 		if (ImGui::BeginTabItem("ESP"))
 		{
 			ImGui::Columns(2);
@@ -16,9 +20,6 @@ void DrawMenu()
 			ImGui::ColorEdit3("##LineCol", reinterpret_cast<float*>(&cfg::LineColor), 32);
 			ImGui::SameLine();
 			ImGui::Checkbox("Line", &cfg::LineESP);
-			ImGui::ColorEdit3("##BoneCol", reinterpret_cast<float*>(&cfg::BoneColor), 32);
-			ImGui::SameLine();
-			ImGui::Checkbox("Skeleton", &cfg::BoneESP);
 			ImGui::ColorEdit3("##KnockCol", reinterpret_cast<float*>(&cfg::KnockColor), 32);
 			ImGui::SameLine();
 			ImGui::Checkbox("Knocked", &cfg::KnockESP);
@@ -29,23 +30,6 @@ void DrawMenu()
 			ImGui::Columns(1);
 			ImGui::Separator();
 			ImGui::SliderInt("Render Distance", &cfg::RenderDistance, 10, 500);
-			// ImGui::Checkbox("Visible Check", &cfg::VisCheck);
-			ImGui::EndTabItem();
-		}
-
-		if (ImGui::BeginTabItem("Chams"))
-		{
-			ImGui::EndTabItem();
-		}
-
-		if (ImGui::BeginTabItem("AimAssist"))
-		{
-			//if (ImGui::Button("Connect to KmboxNet"))
-			//{
-			//	Aimbot::KmNetInit(Global::Km_IP, Global::Km_port, Global::Km_mac);
-			//}
-			//ImGui::Checkbox("Enable AimAssist", &cfg::aimbotEnabled);
-			ImGui::Checkbox("RCS", &cfg::rcs);
 			ImGui::EndTabItem();
 		}
 
@@ -56,6 +40,8 @@ void DrawMenu()
 		}
 
 		ImGui::EndTabBar();
+		ImGui::NewLine();
+		ImGui::Text("QQ Group: 428714797");
 	}
 	ImGui::End();
 }

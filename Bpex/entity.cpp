@@ -1,5 +1,6 @@
 #include "entity.hpp"
 
+// 读地图名称
 std::string GetLevelName()
 {
 	char tmpstr[64] = { 0 };
@@ -11,16 +12,19 @@ std::string GetLevelName()
 	return std::string(tmpstr);
 }
 
+// 取实体指针
 uint64_t GetEntityPtr(int i)
 {
 	return drv.RPM<uint64_t>(Global::GameBase + ENTITYLIST + ((uint64_t)i << 5));
 }
 
+// 取本地玩家指针
 uint64_t GetLocalPlayerPtr()
 {
 	return drv.RPM<uint64_t>(Global::GameBase + LOCALPLAYER);
 }
 
+// 判断实体地址是否正确
 bool Isvalid(uint64_t Addr)
 {
 	if (Addr == 0)
@@ -32,36 +36,43 @@ bool Isvalid(uint64_t Addr)
 	return true;
 }
 
+// 取坐标
 Vector3 GetPosition(uint64_t Addr)
 {
 	return drv.RPM<Vector3>(Addr + VecAbsOrigin);
 }
 
+// 取倒地状态
 int GetKnocked(uint64_t Addr)
 {
 	return drv.RPM<int>(Addr + bleedoutState);
 }
 
+// 取存活状态
 int GetLifeState(uint64_t Addr)
 {
 	return drv.RPM<int>(Addr + LifeState);
 }
 
+// 取生命值
 int GetHealth(uint64_t Addr)
 {
 	return drv.RPM<int>(Addr + iHealth);
 }
 
+// 取最大生命值。貌似没有意义
 int GetMaxHealth(uint64_t Addr)
 {
 	return drv.RPM<int>(Addr + iMaxHealth);
 }
 
+// 取队伍ID
 int GetTeamID(uint64_t Addr)
 {
 	return drv.RPM<int>(Addr + iTeamNum);
 }
 
+// 取距离（游戏引擎中的相对距离，转换为游戏中的米需要另外计算）
 float GetDistance(Vector3 LocalPlayer, Vector3 Entity)
 {
 	Vector3 tmp = { 0,0,0 };
@@ -83,20 +94,22 @@ int get_script_name(uint64_t EntityAddr)
 	return drv.RPM<int>(EntityAddr + scriptNameIndex);
 }
 
+// 判断是否可见
 bool GetVisible(uint64_t LocalPlayerPtr, uint64_t EntityPtr)
 {
 	float last_visible_time = drv.RPM<float>(EntityPtr + LastVisibleTime);
 	float current_time = drv.RPM<float>(LocalPlayerPtr + TIMEBASE);
-	// std::cout << "Local: " << LocalPlayerTime << " Entity: " << EntityTime << std::endl;
-	bool visible = last_visible_time > current_time - 0.19f;
+	bool visible = last_visible_time > current_time - 0.19f;	// 0.18极限 建议0.25
 	return visible;
 }
 
+// 计算等级
 int getLevel(int m_xp) {
 	if (m_xp < 0) return 0;
 	if (m_xp >= 714800) {
 		return floor((m_xp - 714800 + 1) / 18000) + 57;
 	}
+	// 前56级需要的经验值，后面都一样
 	static const int levels[] = {
 		100, 2750, 6650, 11400, 17000, 23350, 30450, 38300, 46450, 55050,
 		64100, 73600, 83550, 93950, 104800, 116100, 127850, 140050, 152400, 164900,
@@ -121,27 +134,7 @@ int getLevel(int m_xp) {
 	return left + 1; // Levels are 1-indexed
 }
 
-bool IsInCrossHair(uint64_t LocalPlayerPtr, uint64_t EntityPtr)
-{
-	float LastVisibleTime;
-	float WorldTime;
-	WorldTime = drv.RPM<float>(LocalPlayerPtr + TIMEBASE);
-	LastVisibleTime = drv.RPM<float>(EntityPtr + LastCrosshairTime);
-
-	return (LastVisibleTime + 0.19f) >= WorldTime;
-}
-
-bool IsOnGround(uint64_t Addr)
-{
-	uint32_t flag = drv.RPM<uint32_t>(Addr + fFlags);
-	return (flag & 0x1) != 0;
-}
-
-Vector3 GetViewOffset(uint64_t Addr)
-{
-	return drv.RPM<Vector3>(Addr + ViewOffset);
-}
-
+// 传入骨骼ID获取对应骨骼坐标
 Vector3 NewHitbox(uintptr_t ent, int HitBox) {
 	DWORD64 Bones = drv.RPM<DWORD64>(ent + mBone);
 	if (!Bones) return Vector3();

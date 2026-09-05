@@ -1,16 +1,6 @@
 #include "renders.hpp"
 
-void Draw::DrawStrokeText(ImVec2 TextPos, const char* Text, ImColor TextColor, ImColor OutlineColor)
-{
-    auto drawList = ImGui::GetBackgroundDrawList();
-    drawList->AddText(ImVec2(TextPos.x - 1, TextPos.y), OutlineColor, Text);
-    drawList->AddText(ImVec2(TextPos.x + 1, TextPos.y), OutlineColor, Text);
-    drawList->AddText(ImVec2(TextPos.x, TextPos.y - 1), OutlineColor, Text);
-    drawList->AddText(ImVec2(TextPos.x, TextPos.y + 1), OutlineColor, Text);
-
-    drawList->AddText(TextPos, TextColor, Text);
-}
-
+// 方框
 void Draw::DrawBox(float x1, float y1, float x2, float y2, ULONG color, float Width, bool outline) {
     if (outline) {
         ImGui::GetBackgroundDrawList()->AddRect(
@@ -32,6 +22,7 @@ void Draw::DrawBox(float x1, float y1, float x2, float y2, ULONG color, float Wi
     );
 }
 
+// 射线
 void Draw::DrawLine(ImVec2 Start, ImVec2 End, ImColor color, float thickness, bool outline)
 {
     if (outline) {
@@ -55,8 +46,10 @@ void Draw::DrawBox(ImVec2 Start, ImVec2 End, ImColor color, float thickness, flo
     ImGui::GetBackgroundDrawList()->AddRect(Start, Start + End, color, rounding, 0, thickness);
 }
 
+// 绘制血量标签
 void Draw::DrawHealth(ImVec2 Start, ImVec2 End, int currentHealth)
 {
+    // 动态颜色变化
     float targetHealth = (float)currentHealth / (float)100 * 255.f;
     float col_r = 255.f - targetHealth;
     float col_g = targetHealth;
@@ -72,6 +65,7 @@ void Draw::DrawHealth(ImVec2 Start, ImVec2 End, int currentHealth)
 	drawList->AddText(ImVec2(textPos.x, textPos.y), IM_COL32((int)col_r, (int)col_g, (int)col_b, 255), healthText.c_str());
 }
 
+// 护甲标签
 void Draw::DrawArmor(ImVec2 Start, ImVec2 End, int currentArmor, int MaxArmor)
 {
     if (MaxArmor <= 0) return;
@@ -85,6 +79,8 @@ void Draw::DrawArmor(ImVec2 Start, ImVec2 End, int currentArmor, int MaxArmor)
     ImColor colorPurple = ImColor(206, 59, 255, 255);
     ImColor colorRed = ImColor(219, 2, 2, 255);
 
+    // 根据护甲值上限设置标签颜色
+    // 如果不使用MaxArmor 可以选择读取ArmorType的值来判断黄金进化甲
     ImColor armorColor;
     if (MaxArmor >= 125) {
         armorColor = colorRed;
@@ -107,25 +103,13 @@ void Draw::DrawArmor(ImVec2 Start, ImVec2 End, int currentArmor, int MaxArmor)
     drawList->AddText(ImVec2(textPos.x, textPos.y), armorColor, armorText.c_str());
 }
 
-void Draw::DrawDistance(ImVec2 Start, ImVec2 End, float dist)
+// 队伍标签
+void Draw::DrawTeam(ImVec2 Start, ImVec2 End, int id, ImColor color)
 {
-    float boxWidth = End.x - Start.x;
-    float boxHeight = End.y - Start.y;
-
-    float centerX = Start.x + (boxWidth / 2);
-
-    float textY = End.y + 5;
-
-    char distanceText[32];
-    if (dist >= 1000) {
-        sprintf_s(distanceText, "%.2fkm", dist / 1000.0f);
-    }
-    else {
-        sprintf_s(distanceText, "%.0fm", dist);
-    }
-
-    ImVec2 textSize = ImGui::CalcTextSize(distanceText);
-    ImVec2 textPos = ImVec2(centerX - (textSize.x / 2), textY);
-
-    DrawStrokeText(textPos, distanceText);
+    ImVec2 textSize = ImGui::CalcTextSize(std::to_string(id).c_str());
+    ImVec2 textPos = ImVec2(Start.x - textSize.x - 1, Start.y);
+    ImVec2 textbgOffset = ImVec2(1, 1);
+    auto drawList = ImGui::GetBackgroundDrawList();
+    drawList->AddRectFilled(textPos - textbgOffset, textPos + textSize + textbgOffset, color);
+    drawList->AddText(ImVec2(textPos.x, textPos.y), ImColor(255, 255, 255, 255), std::to_string(id).c_str());
 }
